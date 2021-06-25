@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Profile</title>
+</head>
+<body>
+    <h1>Hello {{user.first_name}}. These are the job details</h1>
+    <a href="/logout">Log Out</a>
+
+    <h2>{{job.title}}</h2>
+
+    <P>Description: {{job.description}}s</P>
+    <P>Location:{{job.location}}</P>
+    <P>Posted by: {{job.user.first_name}}</P>
+    <p>Posted on: {{job.created_at}}</p>
+    <p>Categories: {{job.category}}</p>
+</body>
+</html>

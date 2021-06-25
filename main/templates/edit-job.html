@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>Hello {{user.first_name}}! Let's Edit your Job!</h1>
+    <form action="/jobs/edit/{{job.id}}/update" method="POST">
+        <!-- <input type="hidden" name="job_id" value="{{job.id}}"> -->
+        {% csrf_token %}
+        <label>Title: </label>
+        <input type="text" name="title" value="{{job.title}}">
+        <label>Description:</label>
+        <input type="text" name="description" value="{{job.description}}">
+        <label>Location:</label>
+        <input type="text" name="location" value="{{job.location}}">
+        <button>Submit</button>
+    </form>
+    <a href="/dashboard">Cancel</a>
+    <ul class="messages">
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+</body>
+</html>
